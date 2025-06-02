@@ -16,6 +16,7 @@ print("第二题：\n")
 
 a = np.array([4, 5, 6])
 
+
 print("(1)输出a 的类型（type）\n", type(a))
 print("(2)输出a的各维度的大小（shape）\n", a.shape)
 print("(3)输出 a的第一个元素（element）\n", a[0])
