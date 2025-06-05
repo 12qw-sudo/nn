@@ -129,7 +129,7 @@ def compute_loss(pred, labels, num_classes=3):
 def train_one_step(model, optimizer, x_batch, y_batch):
     """
     一步梯度下降优化
-    :param model: SoftmaxRegression 实例
+    :param model: SoftmaxRegression实例
     :param optimizer: 优化器（如 Adam, SGD）
     :param x_batch: 输入特征
     :param y_batch: 标签
