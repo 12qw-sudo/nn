@@ -5,15 +5,12 @@
 
 # In[2]:
 
-
 import tensorflow as tf
 import numpy as np
-
 
 # ## 实现softmax函数
 
 # In[6]:
-
 
 def softmax(x):
     ##########
@@ -22,15 +19,12 @@ def softmax(x):
     ##########
     return prob_x
 
-
 test_data = np.random.normal(size=[10, 5])
 (softmax(test_data).numpy() - tf.nn.softmax(test_data, axis=-1).numpy())**2 <0.0001
-
 
 # ## 实现sigmoid函数
 
 # In[9]:
-
 
 def sigmoid(x):
     ##########
@@ -41,11 +35,9 @@ def sigmoid(x):
 test_data = np.random.normal(size=[10, 5])
 (sigmoid(test_data).numpy() - tf.nn.sigmoid(test_data).numpy())**2 < 0.0001
 
-
 # ## 实现 softmax 交叉熵loss函数
 
 # In[32]:
-
 
 def softmax_ce(x, label):
     ##########
@@ -62,11 +54,9 @@ label[np.arange(10), np.random.randint(0, 5, size=10)]=1.
 ((tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(label, test_data))
   - softmax_ce(prob, label))**2 < 0.0001).numpy()
 
-
 # ## 实现 sigmoid 交叉熵loss函数
 
 # In[46]:
-
 
 def sigmoid_ce(x, label):
     ##########
