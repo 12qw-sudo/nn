@@ -23,7 +23,6 @@ def mnist_dataset():
     return (x, y), (x_test, y_test)
 
 
-
 # In[8]:
 
 
@@ -51,7 +50,7 @@ model = myModel()
 optimizer = optimizers.Adam()
 
 
-# ## 计算 loss
+# ## 计算loss
 
 # In[13]:
 
@@ -66,6 +65,7 @@ def compute_loss(logits, labels):
 def compute_accuracy(logits, labels):
     predictions = tf.argmax(logits, axis=1)
     return tf.reduce_mean(tf.cast(tf.equal(predictions, labels), tf.float32))
+
 
 @tf.function
 def train_one_step(model, optimizer, x, y):
