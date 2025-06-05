@@ -10,7 +10,6 @@
 
 # In[1]:
 
-
 import tensorflow as tf
 import matplotlib.pyplot as plt
 
@@ -72,9 +71,7 @@ np.random.shuffle(data_set)
 
 # In[1]:
 
-
 epsilon = 1e-12  # 防止 log(0)
-
 
 class SoftmaxRegression(tf.Module):
     def __init__(self, input_dim=2, num_classes=3):
@@ -128,7 +125,6 @@ def compute_loss(pred, labels, num_classes=3):
     )
     return loss, acc
 
-
 @tf.function
 def train_one_step(model, optimizer, x_batch, y_batch):
     """
@@ -152,9 +148,8 @@ def train_one_step(model, optimizer, x_batch, y_batch):
 
 # In[12]:
 
-
 model = SoftmaxRegression()
-# 创建一个 SoftmaxRegression 模型实例 model
+# 创建一个 SoftmaxRegression 模型实例model
 opt = tf.keras.optimizers.SGD(learning_rate=0.01)
 # 创建随机梯度下降（SGD）优化器实例 opt，设置学习率为 0.01
 x1, x2, y = list(zip(*data_set))
@@ -162,7 +157,7 @@ x1, x2, y = list(zip(*data_set))
 x = np.array(list(zip(x1, x2)), dtype=np.float32)  
 # 转换为 int32
 y = np.array(y, dtype=np.int32)  
-# 从混合数据集 data_set 中提取特征和标签，并转换为所需的数据类型
+# 从混合数据集 data_set 中提取特征和标签，并转换为所需的数据类型，得到需要的答案结果
 for i in range(1000):
     loss, accuracy = train_one_step(model, opt, x, y)
     if i % 50 == 49:
@@ -173,14 +168,12 @@ for i in range(1000):
 
 # In[13]:
 
-
 plt.scatter(C1[:, 0], C1[:, 1], c="b", marker="+")
 plt.scatter(C2[:, 0], C2[:, 1], c="g", marker="o")
 plt.scatter(C3[:, 0], C3[:, 1], c="r", marker="*")
 
 x = np.arange(0.0, 10.0, 0.1)
 y = np.arange(0.0, 10.0, 0.1)
-
 
 X, Y = np.meshgrid(x, y)
 inp = np.array(list(zip(X.reshape(-1), Y.reshape(-1))), dtype=np.float32)
@@ -190,6 +183,5 @@ Z = np.argmax(Z, axis=1)
 Z = Z.reshape(X.shape)
 plt.contour(X, Y, Z)
 plt.show()
-
 
 # In[ ]:
