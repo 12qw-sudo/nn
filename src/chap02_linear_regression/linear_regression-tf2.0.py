@@ -8,11 +8,9 @@ import matplotlib.pyplot as plt
 import tensorflow as tf
 from tensorflow.keras import optimizers, layers, Model
 
-
 def identity_basis(x):
     """恒等基函数"""
     return np.expand_dims(x, axis=1)
-
 
 def multinomial_basis(x, feature_num=10):
     """多项式基函数"""
@@ -22,7 +20,6 @@ def multinomial_basis(x, feature_num=10):
         feat.append(x**i)
     ret = np.concatenate(feat, axis=1)
     return ret
-
 
 def gaussian_basis(x, feature_num=10):
     """高斯基函数"""
@@ -35,10 +32,9 @@ def gaussian_basis(x, feature_num=10):
     # 将x沿着第1维度(axis=1)复制feature_num次并连接
     x = np.concatenate([x] * feature_num, axis=1)
     
-    out = (x - centers) / width  # 计算每个样本点到每个中心点的标准化距离
+    out = (x - centers) / width  # 计算每个样本点到每个中心点的标准化距离，优化注释
     ret = np.exp(-0.5 * out ** 2)  # 对标准化距离应用高斯函数
     return ret
-
 
 def load_data(filename, basis_func=gaussian_basis):
     """载入数据"""
