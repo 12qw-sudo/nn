@@ -98,7 +98,7 @@ def prepare_batch(Nums1, Nums2, results, maxlen):
     return Nums1, Nums2, results
 
 
-# # 建模过程， 按照图示完成建模
+# # 按照图示完成建模
 
 # In[3]:
 
