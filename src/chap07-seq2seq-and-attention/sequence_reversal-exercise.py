@@ -43,7 +43,7 @@ def random_string(length):
     # 重复这个过程 stringLength 次，并用 ''.join() 将这些字符连接成一个字符串
     # 最终返回生成的随机字符串
 
-def get_batch(batch_size, length):
+def get_batch(batch_size, length): #使用一个get_batch的函数
     batched_examples = [randomString(length) for i in range(batch_size)]    # 生成batch_size个随机字符串
     enc_x = [[ord(ch) - ord('A') + 1 for ch in list(exp)] for exp in batched_examples]  # 转成索引
     y = [[o for o in reversed(e_idx)] for e_idx in enc_x]   # 逆序
